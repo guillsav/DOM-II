@@ -40,7 +40,7 @@ const adventure = document.querySelector('.img-content');
 const header = document.querySelector('.main-navigation .nav-container');
 
 const search = document.createElement('input');
-search.placeholder = 'search';
+search.placeholder = 'Search';
 search.className = 'search';
 header.append(search);
 console.log(search);
