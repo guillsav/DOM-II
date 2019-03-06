@@ -215,6 +215,20 @@ img {
   color: #212529;
   text-decoration: none;
 }
+.main-navigation .nav-container .nav .a-white {
+  color: white;
+}
+.main-navigation .nav-container .search {
+  width: 200px;
+  border: 1px solid #3c3c3c24;
+  height: 28px;
+  font-size: 1.3rem;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.main-navigation .nav-container .white::placeholder {
+  color: white;
+}
 .footer {
   width: 100%;
   border-top: 2px dashed #C0C0C0;
@@ -347,6 +361,30 @@ img {
   }
 }
 .home .content-pick .destination .btn:hover {
+  background: #FFFFFF;
+  color: #17A2B8;
+}
+.home .content-pick .destination .paused {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 25px;
+  background-color: red;
+  color: #FFFFFF;
+  border: 1px solid #C0C0C0;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+@media (max-width: 500px) {
+  .home .content-pick .destination .paused {
+    width: 100%;
+  }
+}
+.home .content-pick .destination .paused:hover {
   background: #FFFFFF;
   color: #17A2B8;
 }
