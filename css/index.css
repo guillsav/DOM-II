@@ -220,14 +220,25 @@ img {
 }
 .main-navigation .nav-container .search {
   width: 200px;
-  border: 1px solid #3c3c3c24;
+  border: 1px solid black;
   height: 28px;
   font-size: 1.3rem;
   padding: 10px 5px;
   border-radius: 5px;
+  outline: none;
 }
-.main-navigation .nav-container .white::placeholder {
+.main-navigation .nav-container .black::placeholder {
+  color: black;
+}
+.main-navigation .nav-container .searchFocus {
   color: white;
+  border: 1px solid white;
+  height: 28px;
+  font-size: 1.3rem;
+  padding: 10px 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 200px;
 }
 .footer {
   width: 100%;

@@ -37,22 +37,6 @@ adventureText.addEventListener('select', e => {
 
 const adventure = document.querySelector('.img-content');
 
-const signMeUP = document.querySelector('.destination div');
-
-function pause() {
-  signMeUP.classList.add('paused');
-  signMeUP.classList.remove('btn');
-}
-
-function play() {
-  signMeUP.classList.add('btn');
-  signMeUP.classList.remove('paused');
-}
-
-signMeUP.addEventListener('blur', pause);
-signMeUP.addEventListener('focus', play);
-console.log(signMeUP);
-
 const header = document.querySelector('.main-navigation .nav-container');
 
 const search = document.createElement('input');
@@ -73,13 +57,31 @@ function isScroll(scroll_pos) {
 window.addEventListener('scroll', function(e) {
   window.requestAnimationFrame(function() {
     // isScroll(last_known_scroll_position);
-    navigation.style.background = 'teal';
-    navigation.style.color = 'white';
-    navigation.style.opacity = 0.9;
-    navigation.style.border = 'none';
-    search.style.borderColor = 'white';
-    search.style.backgroundColor = 'teal';
-    search.style.color = 'white';
-    search.classList.add('white');
+    navigation.style.background = 'rgba(213, 188, 22)';
+
+    navigation.style.borderBottom = '2px dashed black';
+    search.style.backgroundColor = 'rgba(213, 188, 22, 0)';
+    search.classList.add('black');
   });
 });
+
+const header2 = document.querySelector('.text-content h2');
+console.log(header2);
+
+header2.addEventListener('dblclick', e => {
+  e.target.style.fontSize = '4.6rem';
+  e.target.style.color = 'rgba(213, 188, 22)';
+});
+
+function pause() {
+  search.classList.add('search');
+  search.classList.remove('searchFocus');
+}
+
+function play() {
+  search.classList.add('searchFocus');
+  search.classList.remove('search');
+}
+
+search.addEventListener('blur', pause);
+search.addEventListener('focus', play);
