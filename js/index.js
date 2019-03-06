@@ -21,8 +21,7 @@ log.className = 'new-element';
 document.body.appendChild(log);
 
 const newClass = document.querySelector('.new-element');
-console.log(newClass);
-
+// console.log(newClass);
 let customStr = '';
 
 window.addEventListener('keydown', function(e) {
@@ -47,7 +46,7 @@ const search = document.createElement('input');
 search.placeholder = 'Search';
 search.className = 'search';
 header.append(search);
-console.log(search);
+// console.log(search);
 
 let last_known_scroll_position = 0;
 
@@ -70,7 +69,7 @@ window.addEventListener('scroll', function(e) {
 });
 
 const header2 = document.querySelector('.text-content h2');
-console.log(header2);
+// console.log(header2);
 
 header2.addEventListener('dblclick', e => {
   e.target.style.fontSize = '4.6rem';
@@ -89,3 +88,22 @@ function play() {
 
 search.addEventListener('blur', pause);
 search.addEventListener('focus', play);
+
+const letsGoText = document.querySelector('.text-content p:nth-child(3)');
+letsGoText.style.display = 'none';
+
+const learnMore = document.createElement('button');
+learnMore.textContent = 'Learn More';
+
+learnMore.addEventListener('click', e => {
+  letsGoText.style.display = 'block';
+  learnMore.textContent = 'Collapse';
+  learnMore.addEventListener('click', e => {
+    letsGoText.style.display = 'none';
+    learnMore.textContent = 'Learn More';
+  });
+});
+
+const textContent = document.querySelector('.text-content');
+textContent.append(learnMore);
+learnMore.classList.add('btn');
