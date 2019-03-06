@@ -34,11 +34,10 @@ header.append(search);
 // console.log(search);
 
 window.addEventListener('scroll', function(e) {
-  console.log(this.window.scrollY);
-  if (this.window.scrollY > 100) {
+  if (this.window.scrollY > 20) {
     navigation.style.background = '#FFEBCD';
     navigation.style.opacity = 0.9;
-    navigation.style.borderBottom = '1px dashed black';
+    navigation.style.borderBottom = '2px dashed #c0c0c0';
     search.style.backgroundColor = 'rgb(208, 182, 143)';
     search.classList.add('black');
   } else {
@@ -50,21 +49,30 @@ window.addEventListener('scroll', function(e) {
   }
 });
 
-const header2 = document.querySelector('.text-content h2');
+const header2 = document.querySelectorAll('.text-content h2');
 // console.log(header2);
-
-header2.addEventListener('dblclick', e => {
-  e.target.style.fontSize = '4.6rem';
-  e.target.style.color = 'rgba(213, 188, 22)';
-});
+for (let i = 0; i < header2.length; i++) {
+  header2[i].addEventListener('dblclick', e => {
+    e.target.style.fontSize = '4.6rem';
+    e.target.style.color = 'rgba(213, 188, 22)';
+  });
+}
 
 function pause() {
   search.classList.add('search');
-  search.classList.remove('searchFocus');
+  if (window.scrollY < 20) {
+    search.classList.remove('searchFocus');
+  } else {
+    search.classList.remove('searchFocusSroll');
+  }
 }
 
 function play() {
-  search.classList.add('searchFocus');
+  if (window.scrollY > 20) {
+    search.classList.add('searchFocusSroll');
+  } else {
+    search.classList.add('searchFocus');
+  }
   search.classList.remove('search');
 }
 
@@ -72,19 +80,21 @@ search.addEventListener('blur', pause);
 search.addEventListener('focus', play);
 
 const letsGoText = document.querySelector('.text-content p:nth-child(3)');
-letsGoText.style.display = 'none';
+letsGoText.classList.add('hide');
 
 const learnMore = document.createElement('button');
 learnMore.textContent = 'Learn More';
 
-learnMore.addEventListener('click', () => {
-  letsGoText.style.display = 'block';
-  learnMore.textContent = 'Collapse';
-  learnMore.addEventListener('click', () => {
-    letsGoText.style.display = 'none';
+function show() {
+  letsGoText.classList.toggle('show');
+  if (learnMore.textContent === 'Learn More') {
+    learnMore.textContent = 'View Less';
+  } else {
     learnMore.textContent = 'Learn More';
-  });
-});
+  }
+}
+
+learnMore.addEventListener('click', show);
 
 const textContent = document.querySelector('.text-content');
 textContent.append(learnMore);

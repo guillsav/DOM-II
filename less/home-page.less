@@ -23,6 +23,10 @@
       width: 48%;
       padding-right: 1%;
 
+      h2 {
+        cursor: pointer;
+      }
+
       @media @mobile {
         width: 100%;
         padding: 0;
@@ -50,6 +54,14 @@
       .button-creator(150px, 45px, @button-bg, @white, 1.4rem);
       outline: none;
     }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
   }
 
   .inverse-content {
