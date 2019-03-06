@@ -9,6 +9,10 @@ heroImg.addEventListener('mouseout', e => {
   e.target.src = 'img/fun-bus.jpg';
 });
 
+heroImg.addEventListener('click', e => {
+  e.target.src = 'img/funBus3.jpg';
+});
+
 const navigation = document.querySelector('.main-navigation');
 
 const log = document.createElement('p');
@@ -59,8 +63,8 @@ window.addEventListener('scroll', function(e) {
     // isScroll(last_known_scroll_position);
     navigation.style.background = 'rgba(213, 188, 22)';
 
-    navigation.style.borderBottom = '2px dashed black';
-    search.style.backgroundColor = 'rgba(213, 188, 22, 0)';
+    navigation.style.borderBottom = '1px dashed black';
+    search.style.backgroundColor = 'rgb(177, 160, 44)';
     search.classList.add('black');
   });
 });
