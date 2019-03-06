@@ -33,24 +33,21 @@ search.className = 'search';
 header.append(search);
 // console.log(search);
 
-let last_known_scroll_position = 0;
-
-function isScroll(scroll_pos) {
-  if (scroll_pos > 100) {
-    return true;
-  }
-  return false;
-}
-
 window.addEventListener('scroll', function(e) {
-  window.requestAnimationFrame(function() {
-    // isScroll(last_known_scroll_position);
-    navigation.style.background = 'rgba(213, 188, 22)';
-
+  console.log(this.window.scrollY);
+  if (this.window.scrollY > 100) {
+    navigation.style.background = '#FFEBCD';
+    navigation.style.opacity = 0.9;
     navigation.style.borderBottom = '1px dashed black';
-    search.style.backgroundColor = 'rgb(177, 160, 44)';
+    search.style.backgroundColor = 'rgb(208, 182, 143)';
     search.classList.add('black');
-  });
+  } else {
+    navigation.style.background = '';
+    navigation.style.opacity = 1;
+    navigation.style.borderBottom = '';
+    search.style.backgroundColor = '';
+    search.classList.remove('black');
+  }
 });
 
 const header2 = document.querySelector('.text-content h2');
@@ -113,5 +110,17 @@ const anchors = document.querySelectorAll('a');
 for (let i = 0; i < anchors.length; i++) {
   anchors[i].addEventListener('click', e => {
     e.preventDefault();
+  });
+}
+
+for (let i = 0; i < anchors.length; i++) {
+  anchors[i].addEventListener('mouseover', e => {
+    e.target.style.color = 'teal';
+  });
+}
+
+for (let i = 0; i < anchors.length; i++) {
+  anchors[i].addEventListener('mouseout', e => {
+    e.target.style.color = '';
   });
 }
