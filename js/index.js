@@ -15,21 +15,6 @@ heroImg.addEventListener('click', e => {
 
 const navigation = document.querySelector('.main-navigation');
 
-const log = document.createElement('p');
-log.className = 'new-element';
-
-document.body.appendChild(log);
-
-const newClass = document.querySelector('.new-element');
-// console.log(newClass);
-let customStr = '';
-
-window.addEventListener('keydown', function(e) {
-  e.stopPropagation();
-  customStr += e.key;
-  log.textContent = customStr;
-});
-
 // h2
 const adventureText = document.querySelector('.content-section .text-content');
 adventureText.addEventListener('select', e => {
@@ -95,10 +80,10 @@ letsGoText.style.display = 'none';
 const learnMore = document.createElement('button');
 learnMore.textContent = 'Learn More';
 
-learnMore.addEventListener('click', e => {
+learnMore.addEventListener('click', () => {
   letsGoText.style.display = 'block';
   learnMore.textContent = 'Collapse';
-  learnMore.addEventListener('click', e => {
+  learnMore.addEventListener('click', () => {
     letsGoText.style.display = 'none';
     learnMore.textContent = 'Learn More';
   });
@@ -107,3 +92,26 @@ learnMore.addEventListener('click', e => {
 const textContent = document.querySelector('.text-content');
 textContent.append(learnMore);
 learnMore.classList.add('btn');
+
+// const log = document.createElement('p');
+// log.className = 'new-element';
+
+// document.body.appendChild(log);
+
+const newClass = document.querySelector('.new-element');
+// console.log(newClass);
+let customStr = '';
+
+search.addEventListener('keydown', function(e) {
+  e.stopPropagation();
+  customStr += e.key;
+  console.log(customStr);
+  // log.textContent = customStr;
+});
+
+const anchors = document.querySelectorAll('a');
+for (let i = 0; i < anchors.length; i++) {
+  anchors[i].addEventListener('click', e => {
+    e.preventDefault();
+  });
+}
