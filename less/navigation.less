@@ -24,7 +24,7 @@
     }
 
     .nav {
-      width: 350px;
+      width: 450px;
       display: flex;
       justify-content: space-evenly;
 
@@ -32,13 +32,46 @@
         width: 100%;
         justify-content: space-around;
       }
-      
-      
+
       a {
         font-size: 1.6rem;
         color: @font-color;
         text-decoration: none;
       }
+      .a-white {
+        color: white;
+      }
+    }
+    .search {
+      width: 200px;
+      border: none;
+      background: rgb(237, 237, 237);
+      height: 28px;
+      font-size: 1.3rem;
+      padding: 10px 15px;
+      border-radius: 50px;
+      outline: none;
+    }
+    .black::placeholder {
+      color: black;
+    }
+    .searchFocus {
+      border: 1px dashed teal;
+      height: 28px;
+      font-size: 1.3rem;
+      padding: 10px 15px;
+      border-radius: 50px;
+      outline: none;
+      width: 200px;
+    }
+    .searchFocusSroll {
+      border: 1px dashed rgb(23, 97, 97);
+      height: 28px;
+      font-size: 1.3rem;
+      padding: 10px 15px;
+      border-radius: 50px;
+      outline: none;
+      width: 200px;
     }
   }
 } // .main-navigation
